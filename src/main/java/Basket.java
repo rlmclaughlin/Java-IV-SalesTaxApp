@@ -32,4 +32,12 @@ public class Basket {
         }
         return total;
     }
+
+    public String createReceipt(){
+        String receipt = "No items in the basket";
+        for(Product index : getProducts()){
+            receipt = "1 " + index.getName() + ": " + index.getPrice();
+        }
+        return receipt;
+    }
 }

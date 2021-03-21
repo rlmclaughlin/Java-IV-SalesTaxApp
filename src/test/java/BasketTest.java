@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BasketTest {
     Product chocolateBar = new Product("chocolate bar", 12.49, 0.10, false);
-    Product book = new Product("Book", 10.00, 0.00, false);
+    Product book = new Product("book", 12.49, 0.00, false);
     Product importChocolates = new Product("Box Of Chocolates [imp]", 20.00, 0.10, true);
     Basket basket = new Basket();
 
@@ -84,9 +84,9 @@ class BasketTest {
 
     @Test
     public void receiptRendersProductWithTax(){
-        basket.addToBasket(chocolateBar);
+        basket.addToBasket(choolateBar);
         String expected = "1 book: 12.49";
-        String actual = createReceipt();
+        String actual = basket.createReceipt();
         assertEquals(expected, actual);
     }
 }
