@@ -4,5 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReceiptTest {
 
+    @Test
+    public void setup(){
+        fail();
+    }
 
 }
