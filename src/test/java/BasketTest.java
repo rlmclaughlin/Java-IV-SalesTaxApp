@@ -6,7 +6,7 @@ class BasketTest {
 
     @Test
     public void setup(){
-        fail();
+        Basket basket = new Basket();
     }
-
+    
 }
