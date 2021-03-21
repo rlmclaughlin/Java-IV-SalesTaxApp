@@ -19,7 +19,9 @@ public class Basket {
 
     public double getTotal(){
         for(Product index : getProducts()){
+            double tax = index.getPrice() * index.getTaxRate();
             total += index.getPrice();
+            total += tax;
         }
         return total;
     }
