@@ -28,7 +28,9 @@ class BasketTest {
         double expected = 0.00;
         double actual = basket.getTotal();
         for(Product index : basket.getProducts()){
+            double tax = index.getPrice() * index.getTaxRate();
             expected += index.getPrice();
+            actual -= tax;
         }
         assertEquals(expected, actual);
     }
