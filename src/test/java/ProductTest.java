@@ -17,5 +17,4 @@ class ProductTest {
         String actual = chocolateBar.getName();
         assertEquals(expected, actual);
     }
-
 }

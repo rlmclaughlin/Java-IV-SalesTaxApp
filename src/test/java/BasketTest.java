@@ -76,10 +76,10 @@ class BasketTest {
     public void doesRenderOnProductList(){
         ArrayList<Product>expected = new ArrayList<>(Arrays.asList(chocolateBar, importChocolates, book));
         ArrayList actual = basket.getProducts();
+        basket.addToBasket(chocolateBar);
         basket.addToBasket(importChocolates);
         basket.addToBasket(book);
-        basket.addToBasket(chocolateBar);
         assertEquals(expected, actual);
-
     }
+    
 }
