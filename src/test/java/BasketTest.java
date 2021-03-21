@@ -6,7 +6,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BasketTest {
-    Product chocolateBar = new Product("Chocolate Bar", 12.49, 0.10, false);
+    Product chocolateBar = new Product("chocolate bar", 12.49, 0.10, false);
     Product book = new Product("Book", 10.00, 0.00, false);
     Product importChocolates = new Product("Box Of Chocolates [imp]", 20.00, 0.10, true);
     Basket basket = new Basket();
@@ -81,5 +81,12 @@ class BasketTest {
         basket.addToBasket(book);
         assertEquals(expected, actual);
     }
-    
+
+    @Test
+    public void receiptRendersProductWithTax(){
+        basket.addToBasket(chocolateBar);
+        String expected = "1 book: 12.49";
+        String actual = createReceipt();
+        assertEquals(expected, actual);
+    }
 }
