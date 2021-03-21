@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BasketTest {
     Product chocolateBar = new Product("Chocolate Bar", 12.49, 0.10, false);
     Product book = new Product("Book", 10.00, 0.00, false);
-    Product importChocolates = new Product("Box Of Chocolates [imp]", 20.00, 0.10, false);
+    Product importChocolates = new Product("Box Of Chocolates [imp]", 20.00, 0.10, true);
     Basket basket = new Basket();
 
     @Test
@@ -65,4 +65,9 @@ class BasketTest {
         assertTrue(actual);
     }
 
+    @Test
+    public void checkIfNotImported(){
+        boolean actual = importChocolates.isImported();
+        assertFalse(actual);
+    }
 }
