@@ -8,7 +8,6 @@ class ProductTest {
 
     @Test
     public void setup(){
-
     }
 
     @Test
