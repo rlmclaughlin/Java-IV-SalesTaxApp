@@ -102,7 +102,7 @@ class BasketTest {
     public void renderReceiptList(){
         ArrayList<String> expectedList = new ArrayList<>();
         expectedList.add("1 chocolate bar: 13.739");
-        expectedList.add("1 chocolate: 12.49");
+        expectedList.add("1 book: 12.49");
         basket.addToBasket(chocolateBar);
         basket.addToBasket(book);
         basket.createReceipt();

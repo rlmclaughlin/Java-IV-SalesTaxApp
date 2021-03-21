@@ -32,14 +32,17 @@ public class Basket {
         for(Product index : getProducts()){
             if(index.isImported()){
                 double regTax = index.getTaxRate();
-                salesTax = index.getPrice() * (regTax + .05);
+                double tax = index.getPrice() * (regTax + .05);
                 total += index.getPrice();
-                total += salesTax;
+                total += tax;
+                salesTax += tax;
             }
-            salesTax = index.getPrice() * index.getTaxRate();
+            double tax = index.getPrice() * index.getTaxRate();
             total += index.getPrice();
-            total += salesTax;
+            total += tax;
+            salesTax += tax;
         }
+        createReceipt();
         return total;
     }
 
@@ -61,7 +64,7 @@ public class Basket {
                 customerReceipt.add(receipt);
             }
         }
-        System.out.println(customerReceipt);
+        System.out.println(renderReceipt());
         return receipt;
     }
 
@@ -69,6 +72,8 @@ public class Basket {
         for(String index : customerReceipt){
             System.out.println(index);
         }
+        System.out.println("Sales Taxes: " + salesTax);
+        System.out.println("Total: " + total);
         return customerReceipt.toString();
     }
 

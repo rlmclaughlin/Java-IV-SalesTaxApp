@@ -10,6 +10,6 @@ public class Main {
         basket.addToBasket(chocolateBar);
         basket.addToBasket(book);
 
-        basket.createReceipt();
+        basket.getTotal();
     }
 }
