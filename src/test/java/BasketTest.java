@@ -11,7 +11,6 @@ class BasketTest {
 
     @Test
     public void setup(){
-
     }
 
     @Test
@@ -34,4 +33,17 @@ class BasketTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void applyTaxToTotal(){
+        basket.addToBasket(chocolateBar);
+        basket.addToBasket(book);
+        double expected = 0.00;
+        double actual = basket.getTotal();
+        for(Product index : basket.getProducts()){
+            double tax = index.getPrice() * index.getTaxRate();
+            expected += index.getPrice();
+            expected += tax;
+        }
+        assertEquals(expected, actual);
+    }
 }
