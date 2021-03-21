@@ -4,6 +4,7 @@ public class Basket {
 
     ArrayList<Product> products = new ArrayList<>();
     double total = 0.00;
+    double salesTax = 0.00;
 
     public void addToBasket(Product product){
         products.add(product);
@@ -21,13 +22,13 @@ public class Basket {
         for(Product index : getProducts()){
             if(index.isImported()){
                 double regTax = index.getTaxRate();
-                double importTax = index.getPrice() * (regTax + .05);
+                salesTax = index.getPrice() * (regTax + .05);
                 total += index.getPrice();
-                total += importTax;
+                total += salesTax;
             }
-            double tax = index.getPrice() * index.getTaxRate();
+            salesTax = index.getPrice() * index.getTaxRate();
             total += index.getPrice();
-            total += tax;
+            total += salesTax;
         }
         return total;
     }
