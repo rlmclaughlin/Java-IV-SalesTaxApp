@@ -98,4 +98,15 @@ class BasketTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void renderReceiptList(){
+        ArrayList<String> expectedList = new ArrayList<>();
+        expectedList.add("1 chocolate bar: 13.739");
+        expectedList.add("1 chocolate: 12.49");
+        basket.addToBasket(chocolateBar);
+        basket.addToBasket(book);
+        basket.createReceipt();
+        ArrayList actual = basket.getCustomerReceipt();
+        assertEquals(expectedList, actual);
+    }
 }

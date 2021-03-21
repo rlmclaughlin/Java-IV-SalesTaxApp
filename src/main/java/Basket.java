@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Basket {
 
     ArrayList<Product> products = new ArrayList<>();
+    ArrayList<String> customerReceipt = new ArrayList<>();
+
     double total = 0.00;
     double salesTax = 0.00;
 
@@ -16,6 +18,14 @@ public class Basket {
 
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
+    }
+
+    public ArrayList<String> getCustomerReceipt() {
+        return customerReceipt;
+    }
+
+    public void setCustomerReceipt(ArrayList<String> customerReceipt) {
+        this.customerReceipt = customerReceipt;
     }
 
     public double getTotal(){
@@ -41,16 +51,25 @@ public class Basket {
                 double regTax = index.getTaxRate();
                 double importTax = regTax += .05;
                 double totalTax = index.getPrice() * importTax;
-                double totalWithTax = Math.round(unitPrice += totalTax);
+                double totalWithTax = unitPrice += totalTax;
                 receipt = "1 " + index.getName() + ": " + totalWithTax;
+                customerReceipt.add(receipt);
             } else {
                 double tax = index.getPrice() * index.getTaxRate();
-                double totalWithTax = Math.round(unitPrice += tax);
-
+                double totalWithTax = unitPrice += tax;
                 receipt = "1 " + index.getName() + ": " + totalWithTax;
+                customerReceipt.add(receipt);
             }
         }
-        System.out.println(receipt);
+        System.out.println(customerReceipt);
         return receipt;
     }
+
+    public String renderReceipt(){
+        for(String index : customerReceipt){
+            System.out.println(index);
+        }
+        return customerReceipt.toString();
+    }
+
 }
