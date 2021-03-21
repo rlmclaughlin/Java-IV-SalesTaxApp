@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -69,5 +70,16 @@ class BasketTest {
     public void checkIfNotImported(){
         boolean actual = importChocolates.isImported();
         assertFalse(actual);
+    }
+
+    @Test
+    public void doesRenderOnProductList(){
+        ArrayList<Product>expected = new ArrayList<>(Arrays.asList(chocolateBar, importChocolates, book));
+        ArrayList actual = basket.getProducts();
+        basket.addToBasket(importChocolates);
+        basket.addToBasket(book);
+        basket.addToBasket(chocolateBar);
+        assertEquals(expected, actual);
+
     }
 }
