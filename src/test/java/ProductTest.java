@@ -6,16 +6,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductTest {
 
-    Product product = new Product();
-
     @Test
     public void setup(){
+
     }
 
     @Test
     public void productIsCreated(){
         Product chocolateBar = new Product("Chocolate Bar", 12.49, 0.00, false);
-        assertEquals(product, chocolateBar);
+        String expected = "Chocolate";
+        String actual = chocolateBar.getName();
+        assertEquals(expected, actual);
     }
 
 }
