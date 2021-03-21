@@ -7,5 +7,5 @@ public class Basket {
     public void addToBasket(Product product){
         products.add(product);
     }
-    
+
 }
