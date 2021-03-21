@@ -83,10 +83,19 @@ class BasketTest {
     }
 
     @Test
-    public void receiptRendersProductWithTax(){
+    public void receiptRendersProductWithNoTax(){
         basket.addToBasket(book);
         String expected = "1 book: 12.49";
         String actual = basket.createReceipt();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void receiptRendersProductWithTax(){
+        basket.addToBasket(chocolateBar);
+        String expected = "1 chocolate: 13.74";
+        String actual = basket.createReceipt();
+        assertEquals(expected, actual);
+    }
+
 }

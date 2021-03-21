@@ -35,9 +35,23 @@ public class Basket {
 
     public String createReceipt(){
         String receipt = "No items in the basket";
+
         for(Product index : getProducts()){
-            receipt = "1 " + index.getName() + ": " + index.getPrice();
+            double unitPrice = index.getPrice();
+            if(index.isImported()){
+                double regTax = index.getTaxRate();
+                double importTax = regTax += .05;
+                double totalTax = index.getPrice() * importTax;
+                double totalWithTax = Math.round(unitPrice += totalTax);
+                receipt = "1 " + index.getName() + ": " + totalWithTax;
+            } else {
+                double tax = index.getPrice() * index.getTaxRate();
+                double totalWithTax = Math.round(unitPrice += tax);
+
+                receipt = "1 " + index.getName() + ": " + totalWithTax;
+            }
         }
+        System.out.println(receipt);
         return receipt;
     }
 }
