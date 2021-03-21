@@ -35,7 +35,6 @@ public class Basket {
 
     public String createReceipt(){
         String receipt = "No items in the basket";
-
         for(Product index : getProducts()){
             double unitPrice = index.getPrice();
             if(index.isImported()){
