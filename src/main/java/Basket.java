@@ -19,6 +19,12 @@ public class Basket {
 
     public double getTotal(){
         for(Product index : getProducts()){
+            if(index.isImported()){
+                double regTax = index.getTaxRate();
+                double importTax = index.getPrice() * (regTax + .05);
+                total += index.getPrice();
+                total += importTax;
+            }
             double tax = index.getPrice() * index.getTaxRate();
             total += index.getPrice();
             total += tax;
