@@ -84,7 +84,7 @@ class BasketTest {
 
     @Test
     public void receiptRendersProductWithTax(){
-        basket.addToBasket(choolateBar);
+        basket.addToBasket(book);
         String expected = "1 book: 12.49";
         String actual = basket.createReceipt();
         assertEquals(expected, actual);
