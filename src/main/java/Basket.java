@@ -26,14 +26,14 @@ public class Basket {
             if(index.isImported()){
                 double regTax = index.getTaxRate();
                 double tax = index.getPrice() * (regTax + .05);
+                total += (index.getPrice() + tax);
+                salesTax += tax;
+            } else {
+                double tax = index.getPrice() * index.getTaxRate();
                 total += index.getPrice();
                 total += tax;
                 salesTax += tax;
             }
-            double tax = index.getPrice() * index.getTaxRate();
-            total += index.getPrice();
-            total += tax;
-            salesTax += tax;
         }
         createReceipt();
         return total;
@@ -62,11 +62,14 @@ public class Basket {
     }
 
     public String renderReceipt(){
+        System.out.println("\n ****************************** \n");
+        System.out.println("Receipt:");
         for(String index : customerReceipt){
             System.out.println(index);
         }
         System.out.println("Sales Taxes: " + df2.format(salesTax));
         System.out.println("Total: " + df2.format(total));
+        System.out.println("\n ****************************** \n");
         return customerReceipt.toString();
     }
 
