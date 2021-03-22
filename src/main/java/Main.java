@@ -2,6 +2,7 @@ public class Main {
 
     public static void main(String[] args){
         //-------------------------basket-----------------------------------------------//
+
         Basket basket = new Basket();
 
         //--------------------------products-------------------------------------------//
@@ -17,10 +18,11 @@ public class Main {
         Product importChocolates_2 = new Product("chocolates 2 [imp]", 11.25, 0.10, true);
 
         //----------------------first ticket------------------------//
-        //basket.addToBasket(book);
-        //basket.addToBasket(cd);
-        //basket.addToBasket(chocolateBar);
-        //basket.getTotal();
+
+        basket.addToBasket(book);
+        basket.addToBasket(cd);
+        basket.addToBasket(chocolateBar);
+        basket.getTotal();
 
         //----------------------second ticket-----------------------//
 
@@ -30,12 +32,11 @@ public class Main {
 
         //---------------------third ticket--------------------------//
 
-        basket.addToBasket(perfume_imp2);
-        basket.addToBasket(perfume);
-        basket.addToBasket(headache_pills);
-        basket.addToBasket(importChocolates_2);
-
-        basket.getTotal();
+        //basket.addToBasket(perfume_imp2);
+        //basket.addToBasket(perfume);
+        //basket.addToBasket(headache_pills);
+        //basket.addToBasket(importChocolates_2);
+        //basket.getTotal();
 
 }
 }
