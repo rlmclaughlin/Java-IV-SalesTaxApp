@@ -9,6 +9,7 @@ public class Main {
 
         basket.addToBasket(chocolateBar);
         basket.addToBasket(book);
+        basket.addToBasket(importChocolates);
 
         basket.getTotal();
     }

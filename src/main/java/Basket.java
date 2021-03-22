@@ -1,7 +1,8 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Basket {
-
+    DecimalFormat df2 = new DecimalFormat("#.##");
     ArrayList<Product> products = new ArrayList<>();
     ArrayList<String> customerReceipt = new ArrayList<>();
 
@@ -16,16 +17,8 @@ public class Basket {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
-    }
-
     public ArrayList<String> getCustomerReceipt() {
         return customerReceipt;
-    }
-
-    public void setCustomerReceipt(ArrayList<String> customerReceipt) {
-        this.customerReceipt = customerReceipt;
     }
 
     public double getTotal(){
@@ -55,12 +48,12 @@ public class Basket {
                 double importTax = regTax += .05;
                 double totalTax = index.getPrice() * importTax;
                 double totalWithTax = unitPrice += totalTax;
-                receipt = "1 " + index.getName() + ": " + totalWithTax;
+                receipt = "1 " + index.getName() + ": " + df2.format(totalWithTax);
                 customerReceipt.add(receipt);
             } else {
                 double tax = index.getPrice() * index.getTaxRate();
                 double totalWithTax = unitPrice += tax;
-                receipt = "1 " + index.getName() + ": " + totalWithTax;
+                receipt = "1 " + index.getName() + ": " + df2.format(totalWithTax);
                 customerReceipt.add(receipt);
             }
         }
@@ -72,8 +65,8 @@ public class Basket {
         for(String index : customerReceipt){
             System.out.println(index);
         }
-        System.out.println("Sales Taxes: " + salesTax);
-        System.out.println("Total: " + total);
+        System.out.println("Sales Taxes: " + df2.format(salesTax));
+        System.out.println("Total: " + df2.format(total));
         return customerReceipt.toString();
     }
 
