@@ -93,7 +93,7 @@ class BasketTest {
     @Test
     public void receiptRendersProductWithTax(){
         basket.addToBasket(chocolateBar);
-        String expected = "1 chocolate: 13.74";
+        String expected = "1 chocolate bar: 13.74";
         String actual = basket.createReceipt();
         assertEquals(expected, actual);
     }
@@ -101,7 +101,7 @@ class BasketTest {
     @Test
     public void renderReceiptList(){
         ArrayList<String> expectedList = new ArrayList<>();
-        expectedList.add("1 chocolate bar: 13.739");
+        expectedList.add("1 chocolate bar: 13.74");
         expectedList.add("1 book: 12.49");
         basket.addToBasket(chocolateBar);
         basket.addToBasket(book);
